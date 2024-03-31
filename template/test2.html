@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, init ial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        header{
+            background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+            padding: 0;
+            border-bottom: 1px solid #e72929 ;
+            padding: 0;
+            
+            font-family: "Quicksand", sans-serif;
+        }
+        a{
+            color: #e72929  ;
+
+        }
+
+        a:hover{
+            background: #e72929;
+            color: white;
+        }
+
+        .container{
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            font-family: "Quicksand", sans-serif;
+
+        }
+        a{
+            text-decoration: none;
+         }
+
+
+        a.logo{
+            /* font-weight: bold; */
+            padding: 1em;
+        }
+
+         nav ul{
+            list-style-type: none;
+            margin: 0;
+        }
+
+        nav ul li a {
+            padding: 1em;
+            display: inline-block;
+        }
+
+        *{
+            box-sizing: border-box;
+        }
+        html{
+           font-size: 16px;
+        }
+
+
+        body{
+            margin: 0;
+            font-family: "Quicksand", sans-serif;
+            font-size:18px ;
+            background: rgb(63,94,251);
+            background: -moz-radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+            background: -webkit-radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+            background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3f5efb",endColorstr="#fc466b",GradientType=1);
+         }
+
+        .container2 ul{
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            list-style-type: none;
+            padding: 0;
+            padding-top: 10px;
+            font-family: "Quicksand", sans-serif;
+
+        }
+
+        .container2 ul li a{
+            height: 15rem;
+            width: 15rem;
+            border: 1px solid whitesmoke;
+            border-radius: 1rem;
+            margin: 0.5rem;
+            display: flex;
+            flex-direction:column;
+            overflow: hidden;
+            color:#e72929 ;
+            padding: .5rem 1rem;
+            position: relative;
+            font-family: "Quicksand", sans-serif;
+        }
+
+        .container2 a:hover{
+            opacity: 0.9;
+            cursor: pointer;
+            background: whitesmoke;
+        }
+        .container2 h1{
+            color: whitesmoke;
+        }
+        .container2 p{
+            color: #df4545;
+        }
+     
+        /* .container2 video{
+
+        } */
+        .container2 form input{
+            border-radius: 10rem 0 0 10rem;
+            border: none;
+            height: 3rem;
+            width: 20rem;
+            background-color: #f1f1f1;
+            padding: 1.2rem;
+            font-size: 1rem ;
+            font-weight: 500;
+            outline: none;
+            font-family: "Quicksand", sans-serif;
+        }
+        .container2 button :hover{
+            /* opacity: 0.9;
+            cursor: pointer;
+            background-color: #ea6868; */
+            opacity: 0.9;
+            
+            background-color: #ea6868;
+        }
+        .container2 button{
+
+            height: 3rem;
+            outline: none;
+            
+            font-size: 1rem;
+            border-radius: 0 10rem 10rem 0;
+            background-color: #dbc2c2;
+            color: #494848;
+        }
+         .buttons div{
+
+            height: 4rem;
+            outline: none;
+            color: grey ;
+            font-size: 1rem;
+            border-radius: 0 10rem 10rem 0;
+        }
+        .container2 ul input{
+            border-radius: 10rem 0 0 10rem;
+            border: none;
+            height: 3rem;
+            width: 20rem;
+            background-color: #dbc2c2;
+            padding: 1.2rem;
+            font-size: 1rem ;
+            font-weight: 500;
+            outline: none;
+        }
+        .container3 ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    padding-top: 10px;
+    font-family: "Quicksand", sans-serif;
+    
+}
+
+.container3 ul li a{
+    height: 15rem;
+    width: 15rem;
+    border: 1px solid whitesmoke;
+    border-radius: 1rem;
+    margin: 0.5rem;
+    display: flex;
+    flex-direction:column;
+    overflow: hidden;
+    color:#e72929 ;
+    padding: .5rem 1rem;
+    position: relative;
+    font-family: "Quicksand", sans-serif;
+}
+
+.container3 button{
+    
+    height:3rem;
+    background-color:  #dbc2c2;
+  border: 1px solid black;
+  border-radius:50px;
+  padding:1.2rem;
+  outline: none;
+  color: #494848 ;
+  
+  font-size: 1rem;
+  height: 3rem;
+  font-family: "Quicksand", sans-serif;
+ 
+    font-weight: 500;
+}
+
+.container3 button :hover{
+    background: rgb(245, 32, 32);
+}
+
+video {
+        display: block;
+        margin: auto;
+      }
+
+</style>
+</head>
+<script async src="https://embed.signasl.org/widgets.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+
+<script
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+
+<body>
+<header>
+    <div class="container">
+      <a href="/" class="logo">Sign Lang!</a>
+      <nav>
+         <ul>
+             <li>
+                 <a href="/">home</a>
+              </li>
+          </ul>
+     </nav>
+    </div>
+
+ </header>
+
+<div class="container2">
+    <ul>
+        <li>
+            <h1>
+                Text to sign conversion
+            </h1>
+
+    <!-- <h1>Enter Sentence: </h1> -->
+    <input placeholder="Enter Sentence" id = 'text'>
+
+    <button id = "buttons">Submit
+    </button>
+    <p id = "Rmessage"></p>
+    <p id = "processed_sentence"></p>
+    </li>
+    </ul>
+</div>
+
+    <!-- <div id = "video_path">{{tokens}}</div> -->
+
+
+    <video id="videoPlayer" width="320" height="240" autoplay="autoplay" muted="muted" >
+        <!-- Initial video source -->
+        <source id="videoSource" src="" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+     <!-- <div id = "GLOSS"></div>
+    <div id = "button-container" class="clearer_class">
+
+    </div>
+    <button id = "clearer" >clear</button>
+    <button id="clickAllButtons" >Play All</button> -->
+</div>
+ <div class="container3">
+    <ul>
+        <li>
+             <div id = "GLOSS"></div>
+             <div id = "button-container" class="clearer_class"></div>
+             <button id = "clearer" >clear</button>
+             <button id="clickAllButtons" >Play All</button>
+        </li>
+    </ul>
+  </div>
+
+    <!-- <img src="" alt=""> -->
+    <script>
+
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+        document.getElementById("buttons").onclick = function()
+        {
+            console.log(document.getElementById('text').value,"Button Triggered");
+            socket.emit('send_data',{data:document.getElementById('text').value});
+        }
+
+
+
+
+        socket.on('NotVideoLoad',function(data){
+            $("#Rmessage").html(data.message);
+        })
+        var messaged = "";
+        function playVideo(videoSrc) {
+            const videoPlayer = document.getElementById('videoPlayer');
+            const sourceElement = videoPlayer.querySelector('source');
+
+            // Set the new video source
+            sourceElement.src = videoSrc;
+            videoPlayer.load(); // Reload the video element
+            videoPlayer.play(); // Play the video
+        }
+
+        socket.on('VideoLoaded',(data)=>
+        {
+            messaged = "data.message"
+            $("#Rmessage").html(data.message)
+            $("#processed_sentence").html(data.pre_sentence);
+
+            var json_tokens = data.token;
+            var json_path = data.path;
+
+            let path = JSON.parse(json_path);
+            let tokens = JSON.parse(json_tokens);
+            let length = path.length;
+            //console.log(path,"paths")
+            //console.log(tokens,"tokens")
+            //function playNextVideo()
+
+            // if (length > 0)
+            // {
+            //     $("#video_path").html(path)
+            // }
+
+            const videoPlayer = document.getElementById('videoPlayer');
+            const glosser = document.getElementById("GLOSS");
+            const source = document.createElement('source');
+            let currentVideoIndex = 0;
+
+            console.log(tokens,"tokens")
+            for (i in tokens)
+            {
+                var bt = document.createElement('button');
+                var gloss = tokens[i]
+                console.log(tokens[i],"tokens")
+                var linkText = document.createTextNode(gloss);
+                bt.appendChild(linkText);
+                bt.setAttribute("id" , i);
+                bt.setAttribute('data-video-src','http://localhost:8000/'+path[i]);
+                //bt.title = tokens[i];
+                //bt.src =  'http://localhost:8000/'+path[i];
+                document.getElementById("button-container").appendChild(bt);
+
+                document.getElementById(String(i)).addEventListener('click', function() {
+                const videoSrc = this.getAttribute('data-video-src');
+                playVideo(videoSrc);});
+            }
+            // function clear()
+            //     {
+            //         console.log("clearing..",
+            //         'data')
+            //         for (i in tokens)
+            //         {
+            //             var divId = document.getElementById("button-container");
+            //             var child = document.getElementById(String(i));
+            //             divId.removeChild(chilId);
+            //         }
+            //     }
+
+        })
+
+        socket.on('FingerSpelling',(data)=>
+        {
+            messaged = "data.message"
+            $("#Rmessage").html(data.message)
+            $("#processed_sentence").html(data.pre_sentence);
+
+            var json_tokens = data.token;
+            var json_path = data.path;
+
+            let path = JSON.parse(json_path);
+            let tokens = JSON.parse(json_tokens);
+            let length = path.length;
+
+
+            const videoPlayer = document.getElementById('videoPlayer');
+            const glosser = document.getElementById("GLOSS");
+            const source = document.createElement('source');
+            let currentVideoIndex = 0;
+
+            console.log(tokens,"tokens")
+            for (i in tokens)
+            {
+                var bt = document.createElement('button');
+                var gloss = tokens[i]
+                console.log(tokens[i],"tokens")
+                var linkText = document.createTextNode(gloss);
+                bt.appendChild(linkText);
+                bt.setAttribute("id" , i);
+                bt.setAttribute('data-video-src','http://localhost:8000/'+path[i]);
+
+                document.getElementById("button-container").appendChild(bt);
+
+                document.getElementById(String(i)).addEventListener('click', function() {
+                const videoSrc = this.getAttribute('data-video-src');
+                playVideo(videoSrc);});
+            }
+
+        })
+
+
+
+        console.log("Before Clearing.....");
+        document.getElementById("clearer").onclick =  function clear()
+        {
+            console.log("Clearing Data...");
+            document.getElementById('button-container').innerHTML='';
+        }
+
+        content = document.getElementsByClassName("clearer_class");
+        console.log(content[0]);
+        kbButtons = content[0].getElementsByTagName("button");
+
+        const sleepNow = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
+        document.getElementById("clickAllButtons").onclick = async function clicker()
+        {
+            console.log("Clicking....");
+             for (var iIndex = 0; iIndex < kbButtons.length; iIndex++)
+             {
+                    kbButtons[iIndex].click();
+                    await sleepNow(4000);
+                    console.log("clicked")
+                };
+        }
+        // function clear()
+        //         {
+        //             for (i in tokens)
+        //             {
+        //                 var divId = document.getElementById("button-container");
+        //                 var child = document.getElementById(String(i))
+        //                 divId.removeChild(childId);
+        //             }
+        //         }
+//
+            // for (i in tokens)
+            // {
+                // glosser.textContent = 'Current File: ' + tokens[i];
+                // console.log(tokens[i])
+            // }
+        //     function updateFileName()
+        //     {
+        //     glosser.textContent = 'Current File: ' + tokens[currentVideoIndex];
+        //     }
+        //     function playNextVideo()
+        //     {
+        //     if (currentVideoIndex < path.length)
+        //     {
+        //         //videoPlayer.src = path[currentVideoIndex];
+        //         source.setAttribute('src',path[currentVideoIndex]);
+
+        //         console.log(path[currentVideoIndex],"path")
+
+        //         source.setAttribute('type','video/mp4')
+
+        //         videoPlayer.appendChild(source)
+        //         videoPlayer.play();
+
+        //         currentVideoIndex++;
+        //         updateFileName(); // Update the file name when playing the next video
+        //     }
+        //     else {
+        //         // All videos have been played, reset to the first video
+        //         currentVideoIndex = 0;
+        //         playNextVideo(); // Play the first video again
+        //     }
+        // }
+
+        // playNextVideo();
+
+
+        //console.log(messaged,"outside")
+        // const videoPlayer = document.getElementById('videoPlayer');
+        // const glosser = document.getElementById("GLOSS")
+        // let currentVideoIndex = 0
+        // function playNextVideo()
+        //     {
+        //         if (currentVideoIndex < videoUrls.length)
+        //         {
+
+
+
+        //             console.log( path,"pather")
+
+        //             videoPlayer.src = path[currentVideoIndex];
+        //             console.log( path[currentVideoIndex],"path")
+
+        //             glosser.textContent = "GLOSS:  ${tokens[currentVideoIndex]}";
+        //             videoPlayer.play();
+        //             currentVideoIndex++;
+        //         }
+        //         else{
+        //             currentVideoIndex = 0;
+        //             videoPlayer.play()
+        //         }
+        //     }
+
+        //     videoPlayer.addEventListener('ended', playNextVideo);
+
+
+
+    //document.getElementsByName("button").onclick = GFG_Fun()
+    //    function GFG_Fun() {
+    //            //$('#processed_sentence').append('Processed Sentence is {{pre_sentence}}');
+    //            console.log("function Excecuted","data")
+    //            document.getElementById("processed_sentence").innerHTML = 'Processed Sentence is ({{pre_sentence}}';
+    //        }
+    // test = function()
+    // {
+        // console.log("Function Triggered");
+    // }
+    // test();
+   </script>
+  <br>
+
+
+
+
+
+
+
+</body>
+
+</html>

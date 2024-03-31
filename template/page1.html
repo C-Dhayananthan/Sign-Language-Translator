@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Streaming</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+
+    <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+
+</head>
+<style>
+  
+body{
+font-family: "Quicksand", sans-serif;
+background: rgb(63,94,251);
+background: -moz-radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+background: -webkit-radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3f5efb",endColorstr="#fc466b",GradientType=1);
+}
+.center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: "Quicksand", sans-serif;
+          }
+.custom-button {
+            background-color: #e72929 ;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+/* Hover effect */
+.custom-button:hover {
+  background-color: #d66161;
+}
+
+  header{
+    background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+
+    padding: 0;
+    border-bottom: 1px solid #e72929 ;
+}
+/* //how do i change the font for this website using font face?*/
+
+a{
+    color: #e72929  ;
+    /* border: 25px; */
+}
+a:hover{
+    background: #e78129;
+    color: white;
+}
+.home{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    font-family: "Quicksand", sans-serif;
+}
+a{
+    text-decoration: none;
+ }
+
+a.logo{
+    /* font-weight: bold; */
+    padding: 1em;
+}
+
+ nav ul{
+    list-style-type: none;
+    margin: 0;
+}
+
+nav ul li a {
+    padding: 1em;
+    display: inline-block;
+}
+
+*{
+    box-sizing: border-box;
+}
+html{
+   font-size: 16px;
+}
+
+
+body{
+    margin: 0;
+    
+    font-size:18px ;
+    color: antiquewhite;
+ }
+  .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    height: 10%;
+ }
+ /* #container
+ {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ } */
+ /* video {
+
+    align-self: auto;
+    align-items: center;
+    align-content: center;
+    border: #e72929;
+} */
+
+canvas{
+  display: contents;
+  border-radius: 25px;
+  /* justify-content:center; */
+}
+video {
+-webkit-transform: scaleX(-1);
+transform: scaleX(-1);
+align-self: center;
+align-content: center;
+border-radius: 25px;
+/* display: block;
+margin: auto; */
+}
+#videoElement{
+  border-radius: 25px;
+}
+ /* p {
+  margin: 1rem;
+    font-family: "Quicksand", sans-serif;
+    font-size:18px ;
+    color: #e72929;
+    text-align: center;
+} */
+
+div{
+  margin: 1rem;
+    font-family: "Quicksand", sans-serif;
+    font-size:18px ;
+    color: #eae6e6;
+    text-align: center;
+
+}
+body h2{
+  text-align: center;
+  margin-right: 20%;
+  margin-top: 1%;
+}
+body video{
+border-radius: 1rem;
+}
+
+/* .search-box {
+            width: 200px;
+            
+
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        } */
+.char{
+  margin: 1rem;
+    /* font-family: "Quicksand", sans-serif; */
+    font-size:18px ;
+    color: #eee9e9;
+    text-align: center;
+}
+
+h1{
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+    font-size:28px ;
+    color: #e6e5e5;
+    text-align: center;
+    margin-top: 2rem;
+}
+</style>
+<body>
+  <header>
+    <div class="home">
+      <a href="/" class="logo">Sign Lang!</a>
+      <nav>
+         <ul>
+             <li>
+              <a href="/">home</a>
+              </li>
+          </ul>
+     </nav>
+    </div>
+
+ </header>
+
+ <body>
+    <!-- <div id="container">
+        <video autoplay playsinline id="videoElement"></video>
+        <canvas id="canvas" width="400" height="300"></canvas>
+      </div> -->
+      <h1>Sign to text</h1>
+
+      <div id="container">
+        <video autoplay playsinline id="videoElement"> Video: </video>
+        <canvas id="canvas" width="400" height="300"></canvas> 
+      </div>
+
+      <!-- <p id = "word">
+        Character: <span id = "word_span" style="color: rgb(247, 82, 5);"></span>
+      </p>  -->
+
+      <div id = "char">
+        <h2 id = "word">
+          Character: <span id = "word_span" style="color: coral;"></span>
+        </h2>
+    </div>
+
+    <div id = "log">
+        <h2 id = "sente"> Sentence: <span id="sente_span" style="color: crimson;">
+        </span> </h2>
+    </div>
+    <div id = center-container>    
+      <button id = "clear" class="custom-button"> clear </button>
+      <!-- <button href="/" class="custom-button"> back </button> -->
+    </div>
+
+
+
+      <!-- <div id = "log">
+        <p id = "sente"> Sentence: <span id="sente_span" style="color: crimson;"></span> </p>
+      </div> -->
+
+    <script>
+    //    const video = document.getElementById('webcam');
+//
+    //    // Request access to the user's webcam
+    //    navigator.mediaDevices.getUserMedia({ video: true })
+    //        .then(function (stream) {
+    //            video.srcObject = stream;
+    //        })
+    //        .catch(function (error) {
+    //            console.error('Error accessing the webcam: ', error);
+    //        });
+
+        // Create a WebSocket connection to the Flask server
+        //const socket = new WebSocket('ws://' + location.host + '/webcam_stream');
+        var socket = io.connect(window.location.protocol + "//" + document.domain + ":" + location.port);
+        socket.on("connect", function () {console.log("Connected...!", socket.connected);});
+
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        const video = document.querySelector("#videoElement");
+
+        video.width = 400;
+        video.height = 400;
+
+        if (navigator.mediaDevices.getUserMedia) {
+          navigator.mediaDevices
+            .getUserMedia({
+              video: true,
+            })
+            .then(function (stream) {
+              video.srcObject = stream;
+              video.play();
+            })
+            .catch(function (err0r) {});
+        }
+
+        const FPS = 10;
+        setInterval(() => {
+          width = video.width;
+          height = video.height;
+          context.drawImage(video, 0, 0, width, height);
+          var data = canvas.toDataURL("image/jpeg", 0.5);
+          context.clearRect(0, 0, width, height);
+          socket.emit("image", data);
+        }, 1000 / FPS);
+
+socket.on("processed_image", function (image) {
+  photo.setAttribute("src", image);
+});
+
+socket.on("word_reponse",function(msg)
+        {
+          //('#word').append('<span id = "dynamic_char" style="color:blue">'+msg.data+'</span>')
+          $('#word_span').html(msg.data)
+          console.log(msg.data , "character")
+        })
+
+socket.on("test_response" , function(msg)
+      {
+        //$('#log').append('<br>' + $('<div/>').text(msg.data).html())
+        //$("#log").html(msg.data)
+
+        //$('#sente').append('<span id = "dynamic_sent">'+html(msge.data)+'</span>')
+        $('#sente_span').html(msg.data)
+        console.log(msg.data , "data")
+      })
+
+      document.getElementById("clear").onclick = function()
+        {
+          console.log("clearing.........");
+          socket.emit("clear_sentence",{message : "clear"});
+        }
+
+        // When the WebSocket is open, start streaming webcam data
+        //socket.addEventListener('open', function (event) {
+        //    const mediaRecorder = new MediaRecorder(video.srcObject);
+        //    mediaRecorder.ondataavailable = function (event) {
+        //        if (event.data.size > 0) {
+        //            socket.send(event.data);
+        //        }
+        //    };
+        //    mediaRecorder.start();
+        //});
+//
+        //// Handle WebSocket errors
+        //socket.addEventListener('error', function (event) {
+        //    console.error('WebSocket error: ', event);
+        //});
+    </script>
+</body>
+</html>
